@@ -401,7 +401,7 @@ Cryptodog.socket.onMessage = function (message) {
             }
 
             if (dat["type"] === "message") {
-                if (body.length > 2000) {
+                if (body.length > Cryptodog.characterLimit) {
                     return true;
                 }
                 if (typeof (body) === 'string') {

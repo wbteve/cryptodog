@@ -23,6 +23,9 @@ Cryptodog.me = {
 	color: "#FFF" // overwritten on connect
 }
 
+// For filtering out messages that exceed this limit
+Cryptodog.characterLimit = 1000;
+
 Cryptodog.previousMessages = [];
 Cryptodog.messageCycle = 0;
 
@@ -997,7 +1000,18 @@ if (typeof (window) !== 'undefined') {
 			if(body === "") {
 				return;
 			} 
+
 			Cryptodog.previousMessages.push(body);
+			
+			if(body.length > Cryptodog.characterLimit) {
+				window.setTimeout(function() {
+					alert("Your message could not be sent, as it exceeds the character limit.");
+				}, 20);
+				
+				$('#userInputText').val('');
+				return;
+			}
+
 			var message = JSON.stringify({
 				type: "message",
 				body: body
