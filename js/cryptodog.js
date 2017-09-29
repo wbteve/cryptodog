@@ -207,7 +207,7 @@ if (typeof (window) !== 'undefined') {
 				message = Cryptodog.UI.addLinks(message);
 				message = Cryptodog.UI.addEmoticons(message);
 				if (message.startsWith("```")) {
-					message = '<pre style="font-family: Courier New; font-size: 9px;">' + message.replace("```", "") + "</pre>";
+					message = '<pre style="font-family: Courier New; font-size: 12px; line-height: 1.4em;">' + message.replace("```", "") + "</pre>";
 				}
 			}
 
