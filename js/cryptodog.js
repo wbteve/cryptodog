@@ -207,7 +207,7 @@ if (typeof (window) !== 'undefined') {
 				message = Cryptodog.UI.addLinks(message);
 				message = Cryptodog.UI.addEmoticons(message);
 				if (message.startsWith("```")) {
-					message = '<pre style="font-family: monospace; font-size: 7px;">' + message.replace("```", "") + "</pre>";
+					message = '<pre style="font-family: Courier New; font-size: 9px;">' + message.replace("```", "") + "</pre>";
 				}
 			}
 
@@ -998,6 +998,10 @@ if (typeof (window) !== 'undefined') {
 		USER INTERFACE BINDINGS
 		-------------------
 		*/
+
+		$('#userInputSend').click(function() {
+			$("#userInput").submit();
+		});
 
 		// Submit user input.
 		$('#userInput').submit(function () {
