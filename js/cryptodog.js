@@ -24,7 +24,7 @@ Cryptodog.me = {
 }
 
 // For filtering out messages that exceed this limit
-Cryptodog.characterLimit = 1000;
+Cryptodog.characterLimit = 2000;
 
 Cryptodog.previousMessages = [];
 Cryptodog.messageCycle = 0;
@@ -198,11 +198,16 @@ if (typeof (window) !== 'undefined') {
 					desktopNotification(notifImg, Cryptodog.me.nickname + "@" + Cryptodog.me.conversation, nickname + ": " + message, 7);
 				}
 
+				if(Cryptodog.isZalgo(message)) {
+					log("Zalgo message filtered.")
+					return false;
+				} 
+
 				message = escapeHtml(message);
 				message = Cryptodog.UI.addLinks(message);
 				message = Cryptodog.UI.addEmoticons(message);
 				if (message.startsWith("```")) {
-					message = '<pre style="font-family: monospace;">' + message.replace("```", "") + "</pre>";
+					message = '<pre style="font-family: monospace; font-size: 7px;">' + message.replace("```", "") + "</pre>";
 				}
 			}
 
